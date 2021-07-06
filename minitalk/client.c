@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/06 12:35:03 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/06 13:31:24 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int	ft_atoi(const char *str)
 
 int main(int argc, char *argv[])
 {
-	if (argc != 2)
-		printf("ERROR in arguments: \'./send <Num. PID> <\"String to send\">\'");
+	if (argc != 3)
+		printf("ERROR in arguments: \'./client <Num. PID> <\"String to send\">\'");
 	else
 	{
 		int PID;
