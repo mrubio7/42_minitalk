@@ -6,22 +6,22 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:05:14 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/06 13:31:23 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/07 20:29:03 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int main()
+int	main(void)
 {
-	pid_t process_id;
-
+	pid_t	process_id;
+	
 	process_id = getpid();
-	printf("Process id: %d\n", process_id);
-	while(1)
+	printf("Process ID (PID): %d\n", process_id);
+	printf("...Waiting to receive data...\n");
+	while (1)
 	{
-		printf("...Waiting to receive data...\n");
-		pause();
+		
 	}
+	return (0);
 }
-

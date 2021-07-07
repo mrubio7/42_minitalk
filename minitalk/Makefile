@@ -17,7 +17,8 @@ $(NAME): $(OBJ-C) $(OBJ-S)
 	$(CC) $(OBJ-C) -o client
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ-S)
+	rm -f $(OBJ-C)
 
 fclean: clean
 	rm -f client

@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/06 13:31:24 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/07 09:09:12 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,65 @@ int	ft_atoi(const char *str)
 	return (num * sig);
 }
 
-int main(int argc, char *argv[])
+unsigned int	ft_strlen(const char *str)
 {
+	int	x;
+
+	x = 0;
+	while (*str != '\0')
+	{
+		x++;
+		str++;
+	}
+	return (x);
+}
+
+void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+{
+	char		*s;
+	char		*d;
+
+	if (!dest && !src)
+		return (NULL);
+	s = (char *)src;
+	d = dest;
+	while (n--)
+	{
+		*d = *s;
+		d++;
+		s++;
+	}
+	return (dest);
+}
+
+char	*ft_strdup(const char *src)
+{
+	char	*s;
+	int		x;
+
+	x = ft_strlen(src) + 1;
+	s = malloc(x);
+	if (s == NULL)
+		return (NULL);
+	if (src == NULL)
+	{
+		free(s);
+		return (NULL);
+	}
+	ft_memcpy(s, src, x);
+	return (s);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_usermsg	stmsg;
+	int			PID;
+
 	if (argc != 3)
-		printf("ERROR in arguments: \'./client <Num. PID> <\"String to send\">\'");
+		printf("ERROR in arguments: \'./client <PID> <\"String to send\">\'");
 	else
 	{
-		int PID;
-
+		stmsg.msg = ft_strdup(argv[2]);
 		PID = ft_atoi(argv[1]);
 		kill(PID, SIGUSR1);
 	}
