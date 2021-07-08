@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/08 11:23:18 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/08 12:04:56 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ typedef struct s_usermsg
 	char	*msg;
 	int		num;
 }	t_usermsg;
-
