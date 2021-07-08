@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/07 09:09:12 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/08 10:09:33 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,13 @@ char	*ft_strdup(const char *src)
 
 int	main(int argc, char *argv[])
 {
-	t_usermsg	stmsg;
-	int			PID;
-
 	if (argc != 3)
 		printf("ERROR in arguments: \'./client <PID> <\"String to send\">\'");
 	else
 	{
+		int PID;
+		t_usermsg stmsg;
+
 		stmsg.msg = ft_strdup(argv[2]);
 		PID = ft_atoi(argv[1]);
 		kill(PID, SIGUSR1);
