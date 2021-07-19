@@ -2,9 +2,10 @@ NAME = minitalk
 
 CC = gcc -Werror -Wextra -Wall
 
-SRC-S = server.c
+SRC-S =	server.c
 
-SRC-C = client.c
+SRC-C =	client.c\
+		utils.c
 
 OBJ-C = $(SRC-C:.c=.o)
 

@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Server.c                                           :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:05:14 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/08 12:17:04 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/19 16:11:07 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	*putstr()
+void *putstr()
 {
-	printf("Señal recibida!\n");
-	return 0;
+	write(1, "1", 1);
+	return (0);
 }
 
-int	convert_signal()
+void *putstr2()
 {
-	struct sigaction act;
-
-	act.sa_handler = (void *)putstr;
-	sigemptyset(&act.sa_mask);
-	act.sa_flags = 0;
-	return (sigaction(SIGUSR1, &act, NULL));
+	write(1, "0", 1);
+	return (0);
 }
 
-int	main()
+int main()
 {
-	pid_t process_id;
+	pid_t	process_id;
 
 	process_id = getpid();
 	printf("Process ID (PID): %d\n", process_id);
-	while(1)
+	while (1)
 	{
-		convert_signal();
-		printf("...Waiting to receive data...\n");
+		signal(SIGUSR1, (void *)putstr);
+		signal(SIGUSR2, (void *)putstr2);
 		pause();
+		printf("\n...Waiting to receive data...\n\n");
 	}
 	return 0;
 }
