@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/19 16:35:14 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/23 13:24:24 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ unsigned int	ft_strlen(const char *str);
 void			*ft_memcpy(void *dest, const void *src, unsigned int n);
 char			*ft_strdup(const char *src);
 
-typedef struct s_usermsg
+typedef struct	s_msg
 {
-	char	*msg;
-	pid_t	num;
-}	t_usermsg;
+	char		c;
+	size_t		size;
+}				t_msg;

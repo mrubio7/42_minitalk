@@ -6,18 +6,19 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/19 16:48:16 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/07/31 19:45:39 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void sendbit(int PID, int b)
+void SendBinary(int PID, int b)
 {
 	if (b == 1)
 		kill(PID, SIGUSR1);
 	else
 		kill(PID, SIGUSR2);
+	usleep(100);
 }
 
 int	InitSend(int PID, const char *str)
@@ -31,8 +32,8 @@ int	InitSend(int PID, const char *str)
 		for (int bw = 7; bw >= 0; bw--)
 		{
 			bit = (str[x] >> bw) & 0000001;
-			sendbit(PID, bit);
-			printf("%i", bit);
+			SendBinary(PID, bit);
+			//printf("%i", bit);
 		}
 		x++;
 	}
