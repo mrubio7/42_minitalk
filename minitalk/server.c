@@ -6,35 +6,31 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:05:14 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/31 20:23:49 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/08/10 23:45:40 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void *is_one()
+static void get_bit(int bit)
 {
-	write(1, "1", 1);
-	return (0);
-}
-
-void *is_zero()
-{
-	write(1, "0", 1);
-	return (0);
+	if (bit == SIGUSR1)
+		write(1, "1", 1);
+	else if (bit == SIGUSR2)
+		write(1, "0", 1);
 }
 
 int main()
 {
 	pid_t	process_id;
-
+	
 	process_id = getpid();
 	printf("Process ID (PID): %d\n", process_id);
 	printf("\n...Waiting to receive data...\n\n");
 	while(1)
 	{
-		signal(SIGUSR1, (void *)is_one);
-		signal(SIGUSR2, (void *)is_zero);
+		signal(SIGUSR1, get_bit);
+		signal(SIGUSR2, get_bit);
 		pause();
 	}
 	return 0;
