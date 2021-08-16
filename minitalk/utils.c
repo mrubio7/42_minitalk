@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 16:00:04 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/31 17:50:26 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/08/16 17:49:16 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,4 @@ char	*ft_strdup(const char *src)
 	ft_memcpy(s, src, x);
 	return (s);
 }
+

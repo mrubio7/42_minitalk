@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/07/31 19:45:39 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/08/16 17:52:45 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,18 @@ int	InitSend(int PID, const char *str)
 	int	x;
 
 	x = 0;
-	while (str[x] != '\0')
+	while (str[x])
 	{
 		for (int bw = 7; bw >= 0; bw--)
 		{
 			bit = (str[x] >> bw) & 0000001;
 			SendBinary(PID, bit);
-			//printf("%i", bit);
 		}
 		x++;
+	}
+	for (int bw = 7; bw >= 0; bw--)
+	{
+		SendBinary(PID, 0);
 	}
 	return 0;
 }
