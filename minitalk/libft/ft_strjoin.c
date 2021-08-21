@@ -1,19 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/13 13:30:49 by mrubio            #+#    #+#             */
+/*   Updated: 2021/06/21 16:32:59 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*res;
+	int		total;
+	int		x;
+	int		z;
+
+	z = 0;
+	x = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	total = ft_strlen(s1) + ft_strlen(s2);
+	res = (char *)malloc(total + 1);
+	if (res == NULL)
+		return (NULL);
+	while (s1[x] != '\0')
+	{
+		res[x] = s1[x];
+		x++;
+	}
+	while (s2[z] != '\0')
+	{
+		res[x + z] = s2[z];
+		z++;
+	}
+	res[x + z] = '\0';
+	return (res);
+}

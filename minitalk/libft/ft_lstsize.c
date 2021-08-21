@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/23 14:28:38 by mrubio            #+#    #+#             */
+/*   Updated: 2021/06/21 16:39:32 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 #include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+
+int	ft_lstsize(t_list *lst)
+{
+	t_list	*current;
+	int		x;
+
+	current = lst;
+	x = 0;
+	while (current != NULL)
+	{
+		x += 1;
+		current = current->next;
+	}
+	return (x);
+}

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/23 14:27:05 by mrubio            #+#    #+#             */
+/*   Updated: 2020/07/29 23:45:31 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+#include "libft.h"
+
+void	ft_lstadd_front(t_list **alst, t_list *new)
+{
+	new->next = *alst;
+	*alst = new;
+}

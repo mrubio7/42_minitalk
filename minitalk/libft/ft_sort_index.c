@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_sort_index.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2021/02/05 16:37:07 by mrubio            #+#    #+#             */
+/*   Updated: 2021/02/05 16:37:22 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+void		ft_sort_index(double *dis, int *ord, int size)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = size;
+	while (i <= size)
+		ord[i++] = 0;
+	i = 0;
+	while (i <= size)
+	{
+		dis[i] < dis[j] ? ord[i]++ : ord[i];
+		if (j == 0 && (i += 1) <= size)
+			j = size + 1;
+		j--;
+	}
+	while (j <= size)
+	{
+		if (ord[j] == ord[j + 1])
+		{
+			ord[j]++;
+			j = 0;
+		}
+		else
+			j++;
+	}
+}

@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/06/30 11:45:23 by mrubio            #+#    #+#             */
+/*   Updated: 2021/06/21 16:31:07 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+#include "libft.h"
+
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+{
+	unsigned int	x;
+
+	x = 0;
+	if (!dest || !src)
+		return (0);
+	if (size != 0)
+	{
+		while ((src[x] != '\0') && (x < size - 1))
+		{
+			dest[x] = src[x];
+			x++;
+		}
+		dest[x] = '\0';
+	}
+	while (src[x] != '\0')
+		x++;
+	return (x);
+}

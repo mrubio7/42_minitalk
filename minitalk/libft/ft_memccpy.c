@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/01 11:33:38 by mrubio            #+#    #+#             */
+/*   Updated: 2020/07/02 10:56:21 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+
+void	*ft_memccpy(void *dest, const void *src, int c, unsigned int n)
+{
+	unsigned int	x;
+
+	x = 0;
+	while (x < n)
+	{
+		*(unsigned char *)(dest + x) = *(unsigned char *)(src + x);
+		if (*(unsigned char *)(src + x) == (unsigned char)c)
+			return (dest + x + 1);
+		x++;
+	}
+	return (NULL);
+}

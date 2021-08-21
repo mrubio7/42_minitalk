@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/08 12:35:26 by mrubio            #+#    #+#             */
+/*   Updated: 2021/06/21 16:48:03 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+
+void	*ft_calloc(unsigned int item, unsigned int size)
+{
+	char	*res;
+	int		total;
+	int		x;
+
+	total = item * size;
+	res = malloc(total);
+	if (!res)
+		return (NULL);
+	x = 0;
+	while (total--)
+	{
+		res[x] = '\0';
+		x++;
+	}
+	return ((void *)res);
+}

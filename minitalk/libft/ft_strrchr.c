@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/16 15:10:08 by mrubio            #+#    #+#             */
+/*   Updated: 2020/07/27 20:18:42 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+
+char	*ft_strrchr(const char *str, int c)
+{
+	int	x;
+
+	x = 0;
+	while (str[x] != '\0')
+		x++;
+	while ((str[x] != c) && (x > 0))
+	{
+		x--;
+		if (str[x] == c)
+			return ((char *)str + x);
+	}
+	if (!c && str[x] == '\0')
+		return ((char *)str + x);
+	return (NULL);
+}

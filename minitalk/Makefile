@@ -4,24 +4,30 @@ CC = gcc -Werror -Wextra -Wall
 
 SRC-S =	server.c
 
-SRC-C =	client.c\
-		utils.c
+SRC-C =	client.c
 
 OBJ-C = $(SRC-C:.c=.o)
 
 OBJ-S = $(SRC-S:.c=.o)
 
+LIB = libft/libft.a
+
 all: $(NAME)
 
-$(NAME): $(OBJ-C) $(OBJ-S)
+MAKELIBS:
+	make -s -C ./libft/
+
+$(NAME): $(OBJ-C) $(OBJ-S) MAKELIBS
 	$(CC) $(OBJ-S) -o server
-	$(CC) $(OBJ-C) -o client
+	$(CC) $(OBJ-C) $(LIB) -o client
 
 clean:
+	rm -f libft/*.o
 	rm -f $(OBJ-S)
 	rm -f $(OBJ-C)
 
 fclean: clean
+	rm -f libft/*.a
 	rm -f client
 	rm -f server
 

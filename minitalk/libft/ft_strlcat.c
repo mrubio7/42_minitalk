@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:56:32 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/27 19:47:13 by mrubio            #+#    #+#             */
+/*   Updated: 2021/06/21 16:47:45 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "libft/libft.h"
+#include "libft.h"
+
+unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
+{
+	int	x;
+	int	z;
+
+	x = 0;
+	z = 0;
+	while ((dest[x]) && (x < (int)size))
+		x++;
+	while ((src[z]) && (x + z + 1) < (int)size)
+	{
+		dest[x + z] = src[z];
+		z++;
+	}
+	if (x < (int)size)
+		dest[x + z] = '\0';
+	return (x + ft_strlen(src));
+}
