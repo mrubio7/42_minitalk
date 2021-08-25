@@ -6,12 +6,14 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 12:12:13 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 14:47:00 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/08/25 19:45:43 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#include <stdlib.h>
 
 void				ft_bzero(void *s, unsigned int n);
 int					ft_isalnum(int c);

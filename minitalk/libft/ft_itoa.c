@@ -6,49 +6,60 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/19 20:38:47 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/21 15:10:19 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/08/25 19:45:28 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int		get_nb_size(unsigned int nb)
+static char	*ft_array(char *x, unsigned int number, long int len)
 {
-	unsigned int	size;
-
-	size = 0;
-	while (nb >= 10)
+	while (number > 0)
 	{
-		nb /= 10;
-		++size;
+		x[len--] = 48 + (number % 10);
+		number = number / 10;
 	}
-	return (size + 1);
+	return (x);
 }
 
-char			*ft_itoa(int nbr)
+static long int	ft_len(int n)
 {
-	char			*str;
-	unsigned int	nb;
-	unsigned int	index;
-	unsigned int	size;
+	int					len;
 
-	if (nbr < 0)
-		nb = (unsigned int)(nbr * -1);
-	else
-		nb = (unsigned int)nbr;
-	size = (unsigned int)get_nb_size(nb);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
-		return (0);
-	if (nbr < 0 && (str[index] = '-'))
-		size++;
-	index = size - 1;
-	while (nb >= 10)
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
 	{
-		str[index--] = (char)(nb % 10 + 48);
-		nb /= 10;
+		len++;
+		n = n / 10;
 	}
-	str[index] = (char)(nb % 10 + 48);
-	str[size] = '\0';
-	return (str);
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char				*x;
+	long int			len;
+	unsigned int		number;
+	int					sign;
+
+	sign = 1;
+	len = ft_len(n);
+	x = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(x))
+		return (NULL);
+	x[len--] = '\0';
+	if (n == 0)
+		x[0] = '0';
+	if (n < 0)
+	{
+		sign *= -1;
+		number = n * -1;
+		x[0] = '-';
+	}
+	else
+		number = n;
+	x = ft_array(x, number, len);
+	return (x);
 }
