@@ -6,14 +6,14 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/28 12:12:13 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/25 19:45:43 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/09/21 08:59:43 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 void				ft_bzero(void *s, unsigned int n);
 int					ft_isalnum(int c);
@@ -47,7 +47,6 @@ char				*ft_strdup(const char *src);
 char				*ft_substr(char const *s, unsigned int start,
 						unsigned int len);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
@@ -57,17 +56,16 @@ void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_abs(int num);
 double				ft_fabs(double num);
-void				ft_sort_index(double *dis, int *ord, int size);
 
 typedef struct s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
-}			t_list;
+}					t_list;
 
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **alst, t_list *new);
-int				ft_lstsize(t_list *lst);
+int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));

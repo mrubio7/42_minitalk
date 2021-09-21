@@ -6,17 +6,17 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:05:14 by mrubio            #+#    #+#             */
-/*   Updated: 2021/08/25 19:57:37 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/09/21 08:50:02 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-static void get_bit(int bit)
+static void	get_bit(int bit)
 {
-	char c;
-	static char letter = 0;
-	static int n = 7;
+	char		c;
+	static char	letter = 0;
+	static int	n = 7;
 
 	c = 0;
 	if (n >= 0)
@@ -36,18 +36,18 @@ static void get_bit(int bit)
 	}
 }
 
-int main()
+int	main(void)
 {
 	pid_t	process_id;
-	
+
 	process_id = getpid();
 	printf("Process ID (PID): %d\n", process_id);
 	printf("\n...Waiting to receive data...\n\n");
-	while(1)
+	while (1)
 	{
 		signal(SIGUSR1, get_bit);
 		signal(SIGUSR2, get_bit);
 		pause();
 	}
-	return 0;
+	return (0);
 }

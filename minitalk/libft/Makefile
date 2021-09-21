@@ -30,7 +30,6 @@ SRC =	ft_bzero.c \
 		ft_strdup.c \
 		ft_substr.c \
 		ft_strjoin.c \
-		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
@@ -39,8 +38,7 @@ SRC =	ft_bzero.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		ft_abs.c \
-		ft_fabs.c \
-		ft_sort_index.c
+		ft_fabs.c 
 
 SRCB = 	ft_lstnew.c \
 		ft_lstadd_front.c \
