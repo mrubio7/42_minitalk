@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/09/28 22:22:16 by mrubio           ###   ########.fr       */
+/*   Created: 2020/10/01 10:25:49 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/23 19:18:08 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "ft_printf/printf.h"
+#include "../printf.h"
 
-char			*ft_itoa(int n);
-int				ft_atoi(const char *str);
-char			*ft_strjoin(char const *s1, char const *s2);
+int		ft_putnbr(long n)
+{
+	int x;
+
+	x = 0;
+	if (n < 0)
+	{
+		x += ft_putchar('-');
+		if (n <= -10)
+			x += ft_putnbr(n / -10);
+		x += ft_putchar(-(n % 10) + 48);
+	}
+	else if (n > 9)
+	{
+		x += ft_putnbr(n / 10);
+		x += ft_putchar((n % 10) + 48);
+	}
+	else
+		x += ft_putchar((n % 10) + 48);
+	return (x);
+}

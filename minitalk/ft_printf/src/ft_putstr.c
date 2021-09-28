@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/09/28 22:22:16 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/21 01:15:47 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/28 01:26:52 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "ft_printf/printf.h"
+#include "../printf.h"
 
-char			*ft_itoa(int n);
-int				ft_atoi(const char *str);
-char			*ft_strjoin(char const *s1, char const *s2);
+int		ft_putstr(char *s)
+{
+	int x;
+
+	x = 0;
+	while (*s != '\0')
+	{
+		write(1, &*s, 1);
+		s++;
+		x++;
+	}
+	return (x);
+}

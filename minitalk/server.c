@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:05:14 by mrubio            #+#    #+#             */
-/*   Updated: 2021/09/21 08:50:02 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/09/28 21:59:26 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(void)
 	pid_t	process_id;
 
 	process_id = getpid();
-	printf("Process ID (PID): %d\n", process_id);
-	printf("\n...Waiting to receive data...\n\n");
+	ft_printf("Process ID (PID): %d\n", process_id);
+	ft_printf("\n...Waiting to receive data...\n\n");
 	while (1)
 	{
 		signal(SIGUSR1, get_bit);

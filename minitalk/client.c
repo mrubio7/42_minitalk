@@ -6,7 +6,7 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 10:25:01 by mrubio            #+#    #+#             */
-/*   Updated: 2021/09/21 08:55:28 by mrubio           ###   ########.fr       */
+/*   Updated: 2021/09/28 22:50:21 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,12 @@ int	init_send(int PID, const char *str)
 int	main(int argc, char *argv[])
 {
 	int		pid;
-	char	*my_pid;
-	char	*strpid;
-	char	*str;
 
 	if (argc != 3)
-		perror("ERROR in arguments: \'./client <Pid> \"String to send\"\'");
+		ft_printf("ERROR in arguments: \'./client <Pid> \"String to send\"\'");
 	else
 	{
-		my_pid = ft_itoa(getpid());
-		strpid = ft_strjoin(my_pid, " - ");
-		free(my_pid);
-		str = ft_strjoin(strpid, argv[2]);
-		free(strpid);
 		pid = ft_atoi(argv[1]);
-		init_send(pid, str);
-		free(str);
+		init_send(pid, argv[2]);
 	}
 }

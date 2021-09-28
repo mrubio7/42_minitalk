@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putnbr_abs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 12:17:03 by mrubio            #+#    #+#             */
-/*   Updated: 2021/09/28 22:22:16 by mrubio           ###   ########.fr       */
+/*   Created: 2020/07/21 01:22:15 by mrubio            #+#    #+#             */
+/*   Updated: 2020/10/28 01:26:47 by mrubio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <pthread.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include "ft_printf/printf.h"
+#include "../printf.h"
 
-char			*ft_itoa(int n);
-int				ft_atoi(const char *str);
-char			*ft_strjoin(char const *s1, char const *s2);
+int		ft_putnbr_abs(long n, t_flg flags)
+{
+	unsigned long num;
+
+	num = n;
+	return (ft_put_flag_nbr((long)num, flags));
+}
